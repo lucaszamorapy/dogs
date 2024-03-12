@@ -1,0 +1,12 @@
+{
+  "links": [
+    {
+      "url": "/",
+      "text": "Home"
+    },
+    {
+      "url": "/login",
+      "text": "Login / Criar"
+    }
+  ]
+}
