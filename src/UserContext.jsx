@@ -2,7 +2,7 @@ import React from "react";
 import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./api";
 import { useNavigate } from "react-router-dom";
 
-export const UserContext = React.createContext();
+export const UserContext = React.createContext(); //Esta usando export para poder ser usado em outros modulos
 
 export const UserStorage = ({ children }) => {
   const [data, setData] = React.useState(null);
@@ -24,7 +24,7 @@ export const UserStorage = ({ children }) => {
   );
 
   async function getUser(token) {
-    const { url, options } = USER_GET(token);
+    const { url, options } = USER_GET(token); //{} extracao do url, options do objeto USER_GET
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json);
@@ -79,3 +79,5 @@ export const UserStorage = ({ children }) => {
     </UserContext.Provider>
   );
 };
+
+//A array de dependências passada como segundo argumento para React.useEffect determina quando o efeito será executado novamente. Quando um ou mais dos valores contidos na array de dependências mudam entre renderizações, o efeito é reexecutado.
