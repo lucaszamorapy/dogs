@@ -3,9 +3,10 @@ import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import Dog from "../../Assets/dogs.svg?react";
 import { UserContext } from "../../UserContext";
+import Button from "../../utils/button/Button";
 
 const Header = () => {
-  const { data } = React.useContext(UserContext);
+  const { data, userLogout, login } = React.useContext(UserContext);
 
   return (
     <header className={styles.header}>
@@ -22,6 +23,7 @@ const Header = () => {
             Login / Criar
           </Link>
         )}
+        {login && <Button onClick={userLogout}>Sair</Button>}
       </nav>
     </header>
   );
