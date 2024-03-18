@@ -26,7 +26,7 @@ const FeedPhotos = ({ setModalPhoto }) => {
         {data.map((photo) => (
           <FeedPhotosItem
             key={photo.id}
-            photo={photo}
+            photo={photo} //Passo data.photo para ser usado no FeedPhotosItem
             setModalPhoto={setModalPhoto}
           />
         ))}
