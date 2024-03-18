@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PhotoComments from "./PhotoComments";
 import { UserContext } from "../../UserContext";
 import PhotoDelete from "./PhotoDelete";
+import ImageReload from "../../helper/imageReload/ImageReload";
 
 const PhotoContent = ({ data }) => {
   const user = React.useContext(UserContext);
@@ -21,7 +22,7 @@ const PhotoContent = ({ data }) => {
   return (
     <div className={styles.photo}>
       <div className={styles.img}>
-        <img src={photo.src} alt={photo.title} />
+        <ImageReload src={photo.src} alt={photo.title} />
       </div>
       <div className={styles.details}>
         <div>
