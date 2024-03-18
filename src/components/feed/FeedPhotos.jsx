@@ -12,7 +12,7 @@ const FeedPhotos = ({ setModalPhoto }) => {
   React.useEffect(() => {
     async function fetchPhotos() {
       const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
-      const { response, json } = request(url, options); //Fazendo o fetch da url e options
+      const { json } = await request(url, options);
       console.log(json);
     }
     fetchPhotos();
@@ -22,17 +22,15 @@ const FeedPhotos = ({ setModalPhoto }) => {
   if (loading) return <Loading />;
   if (data)
     return (
-      <div>
-        <ul className={`${styles.feed} animeLeft`}>
-          {data.map((photo) => (
-            <FeedPhotosItem
-              key={photo.id}
-              photo={photo}
-              setModalPhoto={setModalPhoto}
-            />
-          ))}
-        </ul>
-      </div>
+      <ul className={`${styles.feed} animeLeft`}>
+        {data.map((photo) => (
+          <FeedPhotosItem
+            key={photo.id}
+            photo={photo}
+            setModalPhoto={setModalPhoto}
+          />
+        ))}
+      </ul>
     );
   else return null;
 };

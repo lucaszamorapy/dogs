@@ -1,7 +1,7 @@
 import React from "react";
 import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./api";
 import { useNavigate } from "react-router-dom";
-export const UserContext = React.createContext(); //Esta usando export para poder ser usado em outros modulos
+export const UserContext = React.createContext(); //Está usando export para poder ser usado em outros modulos
 
 export const UserStorage = ({ children }) => {
   const [data, setData] = React.useState(null);
@@ -10,7 +10,7 @@ export const UserStorage = ({ children }) => {
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
 
-  const userLogout = React.useCallback(async function userLogout() {
+  const userLogout = React.useCallback(async function () {
     setData(null);
     setError(null);
     setLoading(false);
@@ -19,7 +19,7 @@ export const UserStorage = ({ children }) => {
   }, []);
 
   async function getUser(token) {
-    const { url, options } = USER_GET(token); //{} extracao do url, options do objeto USER_GET
+    const { url, options } = USER_GET(token);
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json);
@@ -31,9 +31,9 @@ export const UserStorage = ({ children }) => {
       setError(null);
       setLoading(true);
       const { url, options } = TOKEN_POST({ username, password });
-      const response = await fetch(url, options);
-      if (!response.ok) throw new Error("Erro: Usuário inválido");
-      const { token } = await response.json();
+      const tokenRes = await fetch(url, options);
+      if (!tokenRes.ok) throw new Error(`Error: ${tokenRes.statusText}`);
+      const { token } = await tokenRes.json();
       window.localStorage.setItem("token", token);
       await getUser(token);
       navigate("/conta");
