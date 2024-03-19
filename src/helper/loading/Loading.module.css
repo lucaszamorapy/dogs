@@ -14,7 +14,7 @@
   height: 80px;
   display: flex;
   padding-left: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   justify-content: center;
   align-items: center;
   border-radius: 50%;
