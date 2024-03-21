@@ -45,6 +45,8 @@ export const UserStorage = ({ children }) => {
     }
   }
 
+  //getUser é utilizado para pegar o userLogin e transformar em token
+
   React.useEffect(() => {
     async function autoLogin() {
       const token = window.localStorage.getItem("token");
