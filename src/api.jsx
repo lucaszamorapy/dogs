@@ -1,7 +1,5 @@
 export const API_URL = "https://dogsapi.origamid.dev/json";
 
-//Login Usuário
-
 export function TOKEN_POST(body) {
   return {
     url: API_URL + "/jwt-auth/v1/token",
@@ -15,8 +13,6 @@ export function TOKEN_POST(body) {
   };
 }
 
-//Validar Usuário
-
 export function TOKEN_VALIDATE_POST(token) {
   return {
     url: API_URL + "/jwt-auth/v1/token/validate",
@@ -29,8 +25,6 @@ export function TOKEN_VALIDATE_POST(token) {
   };
 }
 
-//Pegar Usuário
-
 export function USER_GET(token) {
   return {
     url: API_URL + "/api/user",
@@ -42,8 +36,6 @@ export function USER_GET(token) {
     },
   };
 }
-
-//Criar Usuário
 
 export function USER_POST(body) {
   return {
@@ -92,14 +84,13 @@ export function PHOTO_GET(id) {
 }
 
 export function COMMENT_POST(id, body) {
-  //Esta chamando o id e body, que vai dentro do Objeto url e Options
   return {
     url: `${API_URL}/api/comment/${id}`,
     options: {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer" + window.localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
       },
       body: JSON.stringify(body),
     },
@@ -107,13 +98,12 @@ export function COMMENT_POST(id, body) {
 }
 
 export function PHOTO_DELETE(id) {
-  //Esta chamando o id e body, que vai dentro do Objeto url e Options
   return {
     url: `${API_URL}/api/photo/${id}`,
     options: {
       method: "DELETE",
       headers: {
-        Authorization: "Bearer" + window.localStorage.getItem("token"),
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
       },
     },
   };
