@@ -11,7 +11,7 @@ import NotFound from "../../components/notfound/NotFound";
 const Login = () => {
   const { login } = React.useContext(UserContext);
 
-  if (login === true) return <Navigate to="/conta" />;
+  if (login === true) return <Navigate to="/conta" />; //Se o login entrar, redirecionar para /conta
   return (
     <section className={styles.login}>
       <div className={styles.forms}>
