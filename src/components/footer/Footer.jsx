@@ -6,8 +6,8 @@ import Dogs from "../../Assets/dogs-footer.svg";
 const Footer = () => {
   return (
     <div className={styles.footer}>
+      <img src={Dogs} alt="Dogs Icon" />
       <p>
-        <img src={Dogs} alt="Dogs Icon" />
         Dogs. Alguns direitos reservados | Desenvolvido por{" "}
         <Link to="https://github.com/lucaszamorapy" target="_blank">
           Lucas Avellar
