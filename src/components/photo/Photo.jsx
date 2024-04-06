@@ -5,6 +5,7 @@ import { PHOTO_GET } from "../../api";
 import Erro from "../../helper/erro/Erro";
 import Loading from "../../helper/loading/Loading";
 import PhotoContent from "../../components/photo/PhotoContent";
+import Head from "../../helper/head/Head";
 
 const Photo = () => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ const Photo = () => {
   if (data)
     return (
       <section className="container mainContainer">
+        <Head title={data.photo.title} />
         <PhotoContent single={true} data={data} />
         {/* Ele esta como true, logo quando estiver sendo chamado em outro componente, já vai estar como true tambem */}
       </section>
